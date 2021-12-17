@@ -131,8 +131,8 @@ INSERT INTO orders (price, order_date, quantity, status_id, user_id)
    (7.49, '2021-11-24 12:58:04', 1, 3, 1)
 ;
 
-CREATE TABLE orders_inventory(
-   inventory_id INT AUTO_INCREMENT,
+CREATE TABLE purchase_order(
+   purchase_id INT AUTO_INCREMENT,
    supplier_id INT,
    product_id INT,
    quantity INT,
