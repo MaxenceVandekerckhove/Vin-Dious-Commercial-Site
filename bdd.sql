@@ -132,21 +132,22 @@ INSERT INTO orders (price, order_date, quantity, status_id, user_id)
 ;
 
 CREATE TABLE purchase_order(
-   purchase_id INT AUTO_INCREMENT,
+   purchase_id INT,
+   quantity INT,
+   purchase_date DATE,
    supplier_id INT,
    product_id INT,
-   quantity INT,
-   status_id INT NOT NULL,
-   PRIMARY KEY(inventory_id),
+   status_id INT,
+   PRIMARY KEY(purchase_id),
    FOREIGN KEY(supplier_id) REFERENCES supplier(supplier_id),
    FOREIGN KEY(product_id) REFERENCES product(product_id),
    FOREIGN KEY(status_id) REFERENCES orders_status(status_id)
 );
 
-INSERT INTO orders_inventory (supplier_id, product_id, quantity, status_id)
+INSERT INTO purchase_order (supplier_id, product_id, quantity, status_id, purchase_date)
    VALUES 
-   (1, 1, 8, 2),
-   (2, 2, 4, 4)
+   (1, 1, 8, 2, '2021-12-17'),
+   (2, 2, 4, 4, '2021-11-23')
 ;
 
 CREATE TABLE discount(
